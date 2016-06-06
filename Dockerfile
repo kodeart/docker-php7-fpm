@@ -1,14 +1,8 @@
-#
-# Build and run:
-#
-# docker build -t php7 .
-# docker run --rm -it php7
-#
 FROM php:7-fpm
 MAINTAINER Mihail Binev <mihail@kodeart.com>
 
 RUN apt-get update && \
-    apt-get install -y supervisor libmcrypt-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev
+    apt-get install -y supervisor libmcrypt-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev --no-install-recommends
 
 # php extensions
 RUN docker-php-ext-install bcmath ctype dom gettext intl json mbstring mcrypt mysqli opcache pcntl pdo pdo_mysql pdo_pgsql pdo_sqlite simplexml shmop xml zip
